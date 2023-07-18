@@ -1,0 +1,122 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block style %}
+    <style>
+    .long
+    {
+        line-height:27px;
+        vertical-align: middle;
+    }
+
+.state-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+    </style>
+{% endblock %}
+{% block content %}
+<h1>Page 3</h1>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        This page asks about your beliefs regarding <b>your opponent from Part 2</b>, who is also a participant
+        in this experiment. This is the opponent you were matched with in Task 1 and Task 2 in Part 2.
+</div>
+    </div>
+    <div class="card bg-light m-3">
+    <div class="card-body long">
+        <p>
+            Please select which of the five gambles you predict <b>your opponent from Part 2 </b> has selected for himself/herself. </p>
+        <p>
+            If your predicted choice matches your opponent’s actual choice, you will receive an additional $1.</p>
+        For example: If your opponent selected Gamble {{ k }} for him/herself, and you predicted that he/she would select Gamble {{ k }}, you will receive $1.
+    </div></div>
+    <h3>Please predict your opponent's gamble</h3>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        {{ formfield_errors 'opp_risk' }}
+    <table class='table table-bordered text-center' style='width: auto; margin: auto; background-color: white'>
+        <tr>
+            <th colspan = 6 class="text-center">GAMBLE PREDICTION TABLE</th>
+        </tr>
+        <tr>
+            <th>Gamble</th>
+            <th>Event</th>
+            <th>Payoff</th>
+            <th>Probabilities</th>
+            <th>Your Prediction</th>
+        </tr>
+        <tr>
+            <th rowspan=2 class="text-center short"><br><b>1</b></th>
+            <td>A</td>
+            <td>$16</td>
+            <td>50%</td>
+            <td rowspan=2>
+                    <br><input type="radio" name="opp_risk" value="1" style="vertical-align:top">
+            </td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>$16</td>
+            <td>50%</td>
+        </tr>
+        <tr>
+            <th rowspan=2 class="text-center short"><br><b>2</b></th>
+            <td>A</td>
+            <td>$24</td>
+            <td>50%</td>
+            <td rowspan=2><br><input type="radio" name="opp_risk" value="2" style="vertical-align:top"></td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>$12</td>
+            <td>50%</td>
+        </tr>
+            <tr>
+            <th rowspan=2 class="text-center short"><br><b>3</b></th>
+            <td>A</td>
+            <td>$32</td>
+            <td>50%</td>
+            <td rowspan=2><br><input type="radio" name="opp_risk" value="3" style="vertical-align:top"></td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>$8</td>
+            <td>50%</td>
+        </tr>
+        <tr>
+            <th rowspan=2 class="text-center short"><br><b>4</b></th>
+            <td>A</td>
+            <td>$40</td>
+            <td>50%</td>
+            <td rowspan=2><br><input type="radio" name="opp_risk" value="4" style="vertical-align:top"></td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>$4</td>
+            <td>50%</td>
+        </tr>
+            <tr>
+            <th rowspan=2 class="text-center short"><br><b>5</b></th>
+            <td>A</td>
+            <td>$48</td>
+            <td>50%</td>
+            <td rowspan=2><br><input type="radio" name="opp_risk" value="5" style="vertical-align:top"></td>
+            </tr>
+        <tr>
+            <td>B</td>
+            <td>$0</td>
+            <td>50%</td>
+        </tr>
+    </table>
+    <br>
+</div>
+        </div>
+
+<div class="card-body">
+          <button  class="button btn btn-success">
+      Submit </button>
+ </div>
+{% endblock %}

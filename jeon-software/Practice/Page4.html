@@ -1,0 +1,197 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block style %}
+    <style>
+      .form-control {
+        width: 100px;
+      }
+      .hidden {
+        display: none;
+      }
+      .otree-timer{
+          display:none;
+      }
+
+    </style>
+
+{% endblock %}
+{% block content %}
+
+
+        <h1> Practice session </h1>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+            Please read the instructions carefully and participate in the practice session.
+            You have 3 minutes to practice.
+</div>
+    </div>
+
+    <div class="card  m-3">
+          <h5 class="card-header">Instructions</h5>
+    <div class="card-body">
+
+        <p>
+        You are paired with a computer opponent who makes a random bid between $0.00 and $10.00 in increments of $0.01.
+            You are endowed with $20.00.
+            There will be an auction between the two of you.
+            The bidder who submits a higher bid will win and receive the prize of $10.00.
+            You can bid from $0.00 to $20.00 in increments of $0.01.
+            Regardless of whether you win or lose, you must pay your bid.
+        </p>
+        <p>
+            <b> In summary, </b><br>
+            o	If you WIN:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‣	Your earnings = $20.00 – your bid + $10.00<br>
+            o	If you LOSE: <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‣	Your earnings = $20.00 – your bid<br>
+            o	If you TIE, the winner will be selected at random: <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‣	50% chance that you WIN<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‣	50% change that you LOSE<br>
+        </p>
+</div>
+    </div>
+<div class=" alert alert-warning">
+    <p>Time left for practice:
+        <span style="font-weight: bold">
+            <span class="otree-timer__time-left"></span>
+        </span>
+    </p>
+</div>
+
+      <h2>Your bidding decision</h2>
+    <div id = "bidDiv" class="card  m-3">
+<div class="card-body">
+        Please now decide your bid. Please answer to the 100th cent. (i.e., $12.34) <br>
+         <input type="number" name="bid" id="bid" class="form-control" step="0.01"/>
+    <span  id="errors">
+    </span>
+     </div>
+</div>
+
+        <div  id = "resultDiv" class="card  m-3 hidden">
+          <h5 class="card-header">Auction results</h5>
+    <div class="card-body" id ="here">
+        </div>
+</div>
+
+    <div class="card-body">
+          <button id="play" class="button btn btn-success ">
+      Submit </button>
+         &nbsp;&nbsp;
+                          <button id ="newgame" class="button btn btn-success hidden">
+      New Game </button>
+ </div>
+        <input type="hidden" name="bid_0" id="bid_0" />
+        <input type="hidden" name="computer_0" id="computer_0" />
+         {{ formfield_errors 'bid_0' }}
+         {{ formfield_errors 'computer_0' }}
+
+
+{% endblock %}
+
+{% block script %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqwidgets/12.0.2/jqwidgets/styles/jqx.base.min.css">
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/jqwidgets/12.0.2/jqwidgets/jqx-all.js"></script>
+    <script>
+    var good = null;
+    var win = null;
+    $("#play").click(function(event) {
+        console.log(win)
+         event.preventDefault();
+
+         var bid = parseFloat($('#bid').val())
+         var bid_0 = $('#bid_0')
+         bid_0.val(bid_0.val() + "," +bid);
+        $("#bid").prop("disabled", true);
+
+         var computer = Math.random() * 10;  // Generate a random number between 0 and 10
+         var computer_0 = $('#computer_0')
+         computer_0.val(computer_0.val() + "," + computer.toFixed(2));
+
+
+
+        $("#play").prop("disabled", true);
+          $('#newgame').show();
+
+        if (bid === "" || isNaN(bid)) {
+          var errorDiv = $('<div id="errorDiv" style="color: #b94a48;">Input must be a valid number.</div>');
+          $('#errors').html(errorDiv);
+          good = false;
+          return; // Exit the function if bid is empty or not a valid number
+        } else if (bid > 20.00 || bid < 0.00) {
+          var errorDiv = $('<div id="errorDiv" style="color: #b94a48;">Number must be between 0 and 20</div>');
+          $('#errors').html(errorDiv);
+          good = false;
+          return; // Exit the function if bid is outside the range
+         } else if (bid.toString().includes(".") && bid.toString().split(".")[1].length > 2) {
+          var errorDiv = $('<div id="errorDiv" style="color: #b94a48;">Number must have at most two decimal places.</div>');
+          $('#errors').html(errorDiv);
+          good = false;
+          return; // Exit the function if bid has more than two decimal places
+        } else {
+          good = true;
+        }
+
+      if (bid > computer) {
+        win = true;
+      } else if (bid < computer) {
+        win = false;
+      } else {
+        win = Math.random() < 0.5; // Randomly assign win to true or false
+      }
+         console.log(bid)
+         console.log(computer)
+         console.log(win)
+
+          $('#resultDiv').show();
+
+
+     if (win === true && good === true) {
+          var payoff = 20 - bid + 10;
+          payoff = payoff.toFixed(2);
+          var winDiv = $('<div id="winDiv">\
+          \                            You WIN<br>\
+                            Your bid: $' + bid.toFixed(2) + '<br>\
+                            Opponent\'s bid: $' + computer.toFixed(2) + '<br>\
+                            Your earnings: $' + payoff + '<br>\
+                          </div>');
+          $('#here').html(winDiv);
+    } else if (win === false && good === true) {
+          var payoff = 20 - bid;
+          payoff = payoff.toFixed(2);
+          var loseDiv = $('<div id="winDiv">\
+          \                            You LOSE<br>\
+                            Your bid: $' + bid.toFixed(2) + '<br>\
+                            Opponent\'s bid: $' + computer.toFixed(2) + '<br>\
+                            Your earnings: $' + payoff + '<br>\
+                          </div>');
+          $('#here').html(loseDiv);
+        }
+
+    });
+
+    $("#newgame").click(function(event) {
+        event.preventDefault();
+
+         $('#bid').val("")
+        $("#bid").prop("disabled", false);
+
+          $('#resultDiv').hide();
+         $('#bidDiv').show();
+          $('#newgame').hide();
+        $("#play").prop("disabled", false);
+
+          $('#errors').empty();
+
+          good = null;
+          win = null;
+          console.log(win)
+          })
+
+     </script>
+
+
+{% endblock %}

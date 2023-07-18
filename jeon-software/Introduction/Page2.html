@@ -1,0 +1,43 @@
+{{ block title }}
+{{ endblock }}
+{{ block content }}
+
+        <h1> Payment Information </h1>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        <p>
+        Please choose a primary and an (optional) secondary method from
+            the methods available below to receive your earnings.
+            If there is trouble with the first method, we will try the back up.
+            This information is for payment purposes and held separate from your response data.
+            After completing the study, any payments owed and marked payable as of today will be
+            verified by authorized research staff and sent within 24 hours.
+        </p>
+        <p>
+        Please provide your payment information in the following formats. <br>
+        <b>Venmo</b>: @username, email address, or mobile number <br>
+        <b>PayPal</b>: @username, email address, or mobile number <br>
+        <b>Bank check</b>: domestic address
+        </p>
+    {{ formfields }}
+
+            </div>
+        </div>
+    <div class="card bg-light m-3">
+            <div class="card-body">
+
+        <p>
+            By clicking on the START button below, you will begin the experiment.
+            Again, the study is expected to take no more than one hour to complete.
+            Please read the instructions carefully and do not leave the experiment unattended for more than 15 minutes.
+        </p>
+
+</div>
+    </div>
+
+
+
+          <button  class="button btn btn-primary">
+      Start</button>
+
+{{ endblock }}

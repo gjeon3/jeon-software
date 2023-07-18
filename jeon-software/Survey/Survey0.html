@@ -1,0 +1,40 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block style %}
+    <style>
+    .long
+    {
+        line-height:27px;
+        vertical-align: middle;
+    }
+
+.state-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+    </style>
+{% endblock %}
+{% block content %}
+        <h1> Survey </h1>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        Welcome to the survey part of the experiment. This survey consists of 5 pages.
+</div>
+    </div>
+
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        Please answer the survey questions as accurately and honestly as possible.
+        Any information you provide will be strictly confidential and will be
+        analyzed in such a way that no one will be able to relate said information to you individually.
+        </div>
+        </div>
+
+
+          <button  class="button btn btn-primary">
+      Next </button>
+
+{% endblock %}

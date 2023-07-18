@@ -1,0 +1,155 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block style %}
+    <style>
+    .long
+    {
+        line-height:27px;
+        vertical-align: middle;
+    }
+
+.state-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+    </style>
+{% endblock %}
+{% block content %}
+        <h1> Survey </h1>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        Welcome to the survey part of the experiment. This survey consists of 5 pages.
+</div>
+    </div>
+
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        Please answer the survey questions as accurately and honestly as possible.
+        Any information you provide will be strictly confidential and will be
+        analyzed in such a way that no one will be able to relate said information to you individually.
+        </div>
+        </div>
+
+<h1>Page 1</h1>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        This page consists of questions about your demographics. <br>
+</div>
+    </div>
+    <div class="card bg-light m-3">
+    <div class="card-body long">
+<p>{{ formfield_errors 'gender' }}
+    <b>What is your gender? </b><br>
+    <input class="form-check-input" type="radio" name="gender" value="0">&nbsp;&nbsp;Male<br>
+    <input class="form-check-input" type="radio" name="gender" value="1">&nbsp;&nbsp;Female<br>
+    <input class="form-check-input" type="radio" name="gender" value="99" style="vertical-align: middle">&nbsp;
+        <span style="vertical-align: middle">Other (please specify):</span> <input type="text" name="gender_other" style="vertical-align: middle; max-width: 100px; padding: .25rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> <br>
+</p>
+<p>{{ formfield_errors 'relation' }}
+    <b>Which of the following applies to you? </b><br>
+    <input class="form-check-input" type="radio" name="relation" value="0">&nbsp;&nbsp;Single, never married<br>
+    <input class="form-check-input" type="radio" name="relation" value="1">&nbsp;&nbsp;Married or in domestic partnership<br>
+    <input class="form-check-input" type="radio" name="relation" value="2">&nbsp;&nbsp;Widowed, divorced, or separated<br>
+    <input class="form-check-input" type="radio" name="relation" value="99" style="vertical-align: middle">&nbsp;
+        <span style="vertical-align: middle">Other (please specify):</span> <input type="text" name="relation_other" style="vertical-align: middle; max-width: 100px; padding: .25rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> <br>
+</p>
+<p>{{ formfield_errors 'age' }}
+    <b>What is your age? </b><br>
+    <input type="text" name="age" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> <br>
+</p>
+<p>{{ formfield_errors 'ethnicity' }}
+    <b>Which of the following best describes your ethnicity? </b><br>
+    <input class="form-check-input" type="radio" name="ethnicity" value="0">&nbsp;&nbsp;White or Caucasian<br>
+    <input class="form-check-input" type="radio" name="ethnicity" value="1">&nbsp;&nbsp;Black or African American<br>
+    <input class="form-check-input" type="radio" name="ethnicity" value="2">&nbsp;&nbsp;Hispanic<br>
+    <input class="form-check-input" type="radio" name="ethnicity" value="3">&nbsp;&nbsp;Asian<br>
+    <input class="form-check-input" type="radio" name="ethnicity" value="4">&nbsp;&nbsp;Native American<br>
+    <input class="form-check-input" type="radio" name="ethnicity" value="5">&nbsp;&nbsp;Multi-Racial<br>
+    <input class="form-check-input" type="radio" name="ethnicity" value="99" style="vertical-align: middle">&nbsp;
+        <span style="vertical-align: middle"> Other (please specify):</span> <input type="text" name="ethnicity_other" style="vertical-align: middle; max-width: 100px; padding: .25rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> <br>
+</p>
+<p>{{ formfield_errors 'state' }}
+<b>Which state were you raised in?</b><br>
+<div class="state-grid">
+  <div><input class="form-check-input" type="radio" name="state" value="0"> Alabama</div>
+  <div><input class="form-check-input" type="radio" name="state" value="1"> Alaska</div>
+  <div><input class="form-check-input" type="radio" name="state" value="2"> Arizona</div>
+  <div><input class="form-check-input" type="radio" name="state" value="3"> Arkansas</div>
+  <div><input class="form-check-input" type="radio" name="state" value="4"> California</div>
+  <div><input class="form-check-input" type="radio" name="state" value="5"> Colorado</div>
+  <div><input class="form-check-input" type="radio" name="state" value="6"> Connecticut</div>
+  <div><input class="form-check-input" type="radio" name="state" value="7"> Delaware</div>
+  <div><input class="form-check-input" type="radio" name="state" value="8"> Florida</div>
+  <div><input class="form-check-input" type="radio" name="state" value="9"> Georgia</div>
+  <div><input class="form-check-input" type="radio" name="state" value="10"> Hawaii</div>
+  <div><input class="form-check-input" type="radio" name="state" value="11"> Idaho</div>
+  <div><input class="form-check-input" type="radio" name="state" value="12"> Illinois</div>
+  <div><input class="form-check-input" type="radio" name="state" value="13"> Indiana</div>
+  <div><input class="form-check-input" type="radio" name="state" value="14"> Iowa</div>
+  <div><input class="form-check-input" type="radio" name="state" value="15"> Kansas</div>
+  <div><input class="form-check-input" type="radio" name="state" value="16"> Kentucky</div>
+  <div><input class="form-check-input" type="radio" name="state" value="17"> Louisiana</div>
+  <div><input class="form-check-input" type="radio" name="state" value="18"> Maine</div>
+  <div><input class="form-check-input" type="radio" name="state" value="19"> Maryland</div>
+  <div><input class="form-check-input" type="radio" name="state" value="20"> Massachusetts</div>
+  <div><input class="form-check-input" type="radio" name="state" value="21"> Michigan</div>
+  <div><input class="form-check-input" type="radio" name="state" value="22"> Minnesota</div>
+  <div><input class="form-check-input" type="radio" name="state" value="23"> Mississippi</div>
+  <div><input class="form-check-input" type="radio" name="state" value="24"> Missouri</div>
+  <div><input class="form-check-input" type="radio" name="state" value="25"> Montana</div>
+  <div><input class="form-check-input" type="radio" name="state" value="26"> Nebraska</div>
+  <div><input class="form-check-input" type="radio" name="state" value="27"> Nevada</div>
+  <div><input class="form-check-input" type="radio" name="state" value="28"> New Hampshire</div>
+  <div><input class="form-check-input" type="radio" name="state" value="29"> New Jersey</div>
+  <div><input class="form-check-input" type="radio" name="state" value="30"> New Mexico</div>
+  <div><input class="form-check-input" type="radio" name="state" value="31"> New York</div>
+  <div><input class="form-check-input" type="radio" name="state" value="32"> North Carolina</div>
+  <div><input class="form-check-input" type="radio" name="state" value="33"> North Dakota</div>
+  <div><input class="form-check-input" type="radio" name="state" value="34"> Ohio</div>
+  <div><input class="form-check-input" type="radio" name="state" value="35"> Oklahoma</div>
+  <div><input class="form-check-input" type="radio" name="state" value="36"> Oregon</div>
+  <div><input class="form-check-input" type="radio" name="state" value="37"> Pennsylvania</div>
+  <div><input class="form-check-input" type="radio" name="state" value="38"> Rhode Island</div>
+  <div><input class="form-check-input" type="radio" name="state" value="39"> South Carolina</div>
+  <div><input class="form-check-input" type="radio" name="state" value="40"> South Dakota</div>
+  <div><input class="form-check-input" type="radio" name="state" value="41"> Tennessee</div>
+  <div><input class="form-check-input" type="radio" name="state" value="42"> Texas</div>
+  <div><input class="form-check-input" type="radio" name="state" value="43"> Utah</div>
+  <div><input class="form-check-input" type="radio" name="state" value="44"> Vermont</div>
+  <div><input class="form-check-input" type="radio" name="state" value="45"> Virginia</div>
+  <div><input class="form-check-input" type="radio" name="state" value="46"> Washington</div>
+  <div><input class="form-check-input" type="radio" name="state" value="47"> West Virginia</div>
+  <div><input class="form-check-input" type="radio" name="state" value="48"> Wisconsin</div>
+  <div><input class="form-check-input" type="radio" name="state" value="49"> Wyoming</div>
+</div>
+        <div>
+<input class="form-check-input" type="radio" name="state" value="99" style="vertical-align: middle">&nbsp;
+        <span style="vertical-align: middle"> Other/International (please specify):</span> <input type="text" name="state_other" style="vertical-align: middle; max-width: 100px; padding: .25rem ; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> <br>
+</div>
+            </p>
+<p>{{ formfield_errors 'grade' }}
+    <b>What is your current year of school? </b><br>
+    <input class="form-check-input" type="radio" name="grade" value="0">&nbsp;&nbsp;1st (freshman)<br>
+    <input class="form-check-input" type="radio" name="grade" value="1">&nbsp;&nbsp;2nd <br>
+    <input class="form-check-input" type="radio" name="grade" value="2">&nbsp;&nbsp;3rd <br>
+    <input class="form-check-input" type="radio" name="grade" value="3">&nbsp;&nbsp;4th <br>
+    <input class="form-check-input" type="radio" name="grade" value="4">&nbsp;&nbsp;5th or more<br>
+    <input class="form-check-input" type="radio" name="grade" value="99" style="vertical-align: middle">&nbsp;
+        <span style="vertical-align: middle"> Other (please specify):</span>
+    <input type="text" name="grade_other" style="vertical-align: middle; max-width: 100px; padding: .25rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> <br>
+</p>
+<p>{{ formfield_errors 'major' }}
+    <b>What is your current or intended major? </b>
+        If you have more than one major, please report the major you consider to be the primary major.<br>
+    <input type="text" name="major" style="vertical-align: middle; max-width: 200px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> <br>
+</p>
+</div>
+    </div>
+
+          <button  class="button btn btn-success">
+      Submit </button>
+
+{% endblock %}

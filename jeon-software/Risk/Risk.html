@@ -1,0 +1,131 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block style %}
+    <style>
+    .short
+    {
+        line-height:20px;
+    }
+    </style>
+
+{% endblock %}
+{% block content %}
+
+        <h1> Part 1  </h1>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        Welcome to Part 1 of the experiment. This part consists of one task.
+            Please read the instructions carefully and complete the task.
+</div>
+    </div>
+
+    <div class="card  m-3">
+          <h5 class="card-header">Instructions</h5>
+    <div class="card-body">
+
+        <p>
+        Please select from among five different gambles the one gamble you would like to play.
+            The five different gambles are listed on your <b>GAMBLE SELECTION TABLE</b>.
+            You must select only one of these gambles.</p><p>
+            Each gamble has two possible outcomes (Event A or Event B) with the indicated probabilities of occurring.
+            Your earnings will be determined by: 1) which of the five gambles you select;
+            and 2) which of the two possible events occur. For every gamble, each event has a 50% chance of occurring.</p><p>
+        At the end of the study, if this part is selected for payment,
+            you will make a random selection between Event A and Event B.</p> <p>
+        For example: If you select gamble 4 and Event A occurs, you will earn $40.
+            If Event B occurs, you will earn $4.
+        </p>
+
+</div>
+    </div>
+
+<h3>Please select your gamble</h3>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        {{ formfield_errors 'own_risk' }}
+    <br>
+    <table class='table table-bordered text-center' style='width: auto; margin: auto; background-color: white'>
+        <tr>
+            <th colspan = 6 class="text-center">GAMBLE SELECTION TABLE</th>
+        </tr>
+        <tr>
+            <th>Gamble</th>
+            <th>Event</th>
+            <th>Payoff</th>
+            <th>Probabilities</th>
+            <th>Your Selection</th>
+        </tr>
+        <tr>
+            <th rowspan=2 class="text-center short"><br><b>1</b></th>
+            <td>A</td>
+            <td>$16</td>
+            <td>50%</td>
+            <td rowspan=2><br>
+                    <input type="radio" name="own_risk" value="1" style="vertical-align:top">
+            </td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>$16</td>
+            <td>50%</td>
+        </tr>
+        <tr>
+            <th rowspan=2 class="text-center short"><br><b>2</b></th>
+            <td>A</td>
+            <td>$24</td>
+            <td>50%</td>
+            <td rowspan=2><br><input type="radio" name="own_risk" value="2" style="vertical-align:top"></td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>$12</td>
+            <td>50%</td>
+        </tr>
+            <tr>
+            <th rowspan=2 class="text-center short"><br><b>3</b></th>
+            <td>A</td>
+            <td>$32</td>
+            <td>50%</td>
+            <td rowspan=2><br><input type="radio" name="own_risk" value="3" style="vertical-align:top"></td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>$8</td>
+            <td>50%</td>
+        </tr>
+        <tr>
+            <th rowspan=2 class="text-center short"><br><b>4</b></th>
+            <td>A</td>
+            <td>$40</td>
+            <td>50%</td>
+            <td rowspan=2><br><input type="radio" name="own_risk" value="4" style="vertical-align:top"></td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>$4</td>
+            <td>50%</td>
+        </tr>
+            <tr>
+            <th rowspan=2 class="text-center short"><br><b>5</b></th>
+            <td>A</td>
+            <td>$48</td>
+            <td>50%</td>
+            <td rowspan=2><br><input type="radio" name="own_risk" value="5" style="vertical-align: top"></td>
+            </tr>
+        <tr>
+            <td>B</td>
+            <td>$0</td>
+            <td>50%</td>
+        </tr>
+    </table>
+    <br>
+</div>
+        </div>
+
+<div class="card-body">
+          <button  class="button btn btn-primary">
+      Submit </button>
+ </div>
+{% endblock %}

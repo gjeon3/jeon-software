@@ -1,0 +1,96 @@
+{{ block title }}
+{{ endblock }}
+{{ block content }}
+        <h1> Payment Information  </h1>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+
+        <p>
+            Your selections for payment are <b>Part {{ part_selected }}</b> and <b>
+                {% if part_selected == "1" %}
+                    Event {{ event_selected }}
+                {% elif part_selected == "2" %}
+                    Task {{ task_selected }}
+                {% endif %}
+                </b>.</p>
+                <p>
+            Your final earnings in this experiment is <b>${{ player.pay_final }}</b>.</p>
+        <p>
+            <span style="text-decoration: underline;text-decoration-thickness: 1.5px">Final earnings breakdown</span><br>
+            Participation: $3.0 <br>
+            <b>Part {{ part_selected }}</b> and <b>
+             {% if part_selected == "1" %}
+                    Event {{ event_selected }}
+                {% elif part_selected == "2" %}
+                    Task {{ task_selected }}
+                {% endif %}
+                    </b> : ${{ player.pay_part }} <br>
+            Survey: $2.0 <br>
+        </p>
+
+            Please wait for the experimenter to approach you and assist you with the payment process.
+
+    </div></div>
+
+            <div class="card bg-light m-3">
+    <div class="card-body">
+        Thank you for your valuable participation in this study!
+</div>
+    </div>
+
+        <h1> Experiment Result  </h1>
+    <div class="card  m-3">
+          <h5 class="card-header">Part 1</h5>
+    <div class="card-body">
+        {{ part1_text }}
+</div>
+    </div>
+    <div class="card  m-3">
+          <h5 class="card-header">Part 2 Task 1</h5>
+    <div class="card-body">
+                You {{ is_winner_1 }} <br>
+        Your bid: ${{ bid_1 }} <br>
+        Opponent's bid: ${{ opponent_bid_1 }}<br>
+        Your earnings: ${{ player.pay_1 }}<br>
+</div>
+    </div>
+    <div class="card  m-3">
+          <h5 class="card-header">Part 2 Task 2</h5>
+    <div class="card-body">
+        Your entry decision: {{ entry_2 }}<br>
+        {% if entry_2 == "ENTER" %}
+            You {{ is_winner_2 }}  <br>
+            Your bid: ${{ bid_2 }} <br>
+            Opponent's Task 1 bid: ${{ opponent_bid_1 }}<br>
+            Your earnings: ${{ player.pay_2 }}<br>
+        {% elif entry_2 == "EXIT" %}
+            Your earnings: ${{ player.pay_2 }}<br>
+        {% endif %}
+    </div>
+    </div>
+    <div class="card  m-3">
+          <h5 class="card-header">Part 2 Task 3</h5>
+    <div class="card-body">
+        You {{ is_winner_3 }} <br>
+        Your bid: ${{ bid_3 }} <br>
+        Computer opponent's bid: ${{ computer_3 }}<br>
+        Your earnings: ${{ player.pay_3 }}<br>
+</div>
+    </div>
+    <div class="card  m-3">
+          <h5 class="card-header">Part 2 Task 4</h5>
+    <div class="card-body">
+        Your entry decision: {{ entry_4 }}<br>
+        {% if entry_4 == "ENTER" %}
+            You {{ is_winner_4 }}  <br>
+            Your bid: ${{ bid_4 }} <br>
+            Computer opponent's Task 3 bid: ${{ computer_3 }}<br>
+            Your earnings: ${{ player.pay_4 }}<br>
+        {% elif entry_4 == "EXIT" %}
+            Your earnings: ${{ player.pay_4 }}<br>
+        {% endif %}
+</div>
+    </div>
+
+
+{{ endblock }}

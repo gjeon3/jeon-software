@@ -1,0 +1,271 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block style %}
+    <style>
+    .short
+    {
+        vertical-align: middle;
+    }
+
+.state-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+    </style>
+{% endblock %}
+{% block content %}
+
+<h1>Page 4</h1>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        This page consists of 3 sets of questions about your expectations. <br>
+</div>
+    </div>
+<h2> Set 1</h2>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        For this next set of questions, please look ahead to when you will be <b>25</b> years old.<br>
+</div>
+    </div>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+
+<!--        <b> For this next set of questions, look ahead to when you will be 25 years old.</b><br><br>-->
+        <b>Envision yourself working at this time. </b><br>
+
+<p>
+    How much do you expect to earn per year?&nbsp;<br>
+            {{ formfield_errors 'own_salary_1' }}<input type="text" name="own_salary_1" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> USD/year <br>
+    <br>
+    How many hours a week do you expect to work?&nbsp;<br>
+            {{ formfield_errors 'own_hour_1' }}<input type="text" name="own_hour_1" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> hours/week <br>
+        <br>
+    What do you believe is the percentage chance that you will be married at this time?&nbsp;<br>
+            {{ formfield_errors 'married_1' }}<input type="text" name="married_1" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> %<br>
+</p>
+<br>
+      <b>Envision yourself also being married at this time.</b>
+<p>
+    How much do you expect your spouse to earn per year?&nbsp;<br>
+                {{ formfield_errors 'spouse_salary_1' }}<input type="text" name="spouse_salary_1" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> USD/year <br>
+    <br>
+
+    How many hours a week do you expect your spouse to work?&nbsp;<br>
+        {{ formfield_errors 'spouse_hour_1' }}<input type="text" name="spouse_hour_1" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> hours/week <br>
+
+        <br> What do you believe is the percentage chance of the following at this time?
+        Your answers should sum to 100.
+            {{ formfield_errors 'nochild_1' }}
+            {{ formfield_errors 'onechild_1' }}
+            {{ formfield_errors 'twochild_1' }}
+    <div  style="line-height: 10px">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You having no children: <input type="text" name="nochild_1" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> %<br>
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You having one child: <input type="text" name="onechild_1" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> %<br>
+    <br>You having two or more children: <input type="text" name="twochild_1" style="vertical-align: middle; max-width: 100px; padding: .35rem ; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> %<br>
+   </div>
+                <div id="sumDiv1">
+            Sum:
+        </div>
+</p>
+</div>
+    </div>
+<h2> Set 2</h2>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        For this next set of questions, please look ahead to when you will be <b>30</b> years old.<br>
+</div>
+    </div>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+
+        <b>Envision yourself working at this time. </b><br>
+
+<p>
+    How much do you expect to earn per year?&nbsp;<br>
+            {{ formfield_errors 'own_salary_2' }}<input type="text" name="own_salary_2" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> USD/year <br>
+    <br>
+    How many hours a week do you expect to work?&nbsp;<br>
+            {{ formfield_errors 'own_hour_2' }}<input type="text" name="own_hour_2" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"/> hours/week <br>
+        <br>
+    What do you believe is the percentage chance that you will be married at this time?&nbsp;<br>
+            {{ formfield_errors 'married_2' }}<input type="text" name="married_2" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"/> %<br>
+</p>
+
+<br>
+      <b>Envision yourself also being married at this time.</b>
+<p>
+    How much do you expect your spouse to earn per year?&nbsp;<br>
+                {{ formfield_errors 'spouse_salary_2' }}<input type="text" name="spouse_salary_2" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"/> USD/year <br>
+    <br>
+
+    How many hours a week do you expect your spouse to work?&nbsp;<br>
+        {{ formfield_errors 'spouse_hour_2' }}<input type="text" name="spouse_hour_2" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"/> hours/week <br>
+
+        <br> What do you believe is the percentage chance of the following at this time?
+        Your answers should sum to 100.
+            {{ formfield_errors 'nochild_2' }}
+            {{ formfield_errors 'onechild_2' }}
+            {{ formfield_errors 'twochild_2' }}
+    <div  style="line-height: 10px">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You having no children: <input type="text" name="nochild_2" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"/> %<br>
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You having one child: <input type="text" name="onechild_2" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"/> %<br>
+    <br>You having two or more children: <input type="text" name="twochild_2" style="vertical-align: middle; max-width: 100px; padding: .35rem ; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"/> %<br>
+   </div>
+                <div id="sumDiv2">
+            Sum:
+        </div>
+</p>
+</div>
+    </div>
+<h2> Set 3</h2>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        For this next set of questions, please look ahead to when you will be <b>35</b> years old.<br>
+</div>
+    </div>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+
+
+        <b> For this next set of questions, look ahead to when you will be 35 years old.</b><br><br>
+        <b>Envision yourself working at this time. </b><br>
+<p>
+    How much do you expect to earn per year?&nbsp;<br>
+            {{ formfield_errors 'own_salary_3' }}<input type="text" name="own_salary_3" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> USD/year <br>
+    <br>
+    How many hours a week do you expect to work?&nbsp;<br>
+            {{ formfield_errors 'own_hour_3' }}<input type="text" name="own_hour_3" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> hours/week <br>
+        <br>
+    What do you believe is the percentage chance that you will be married at this time?&nbsp;<br>
+            {{ formfield_errors 'married_3' }}<input type="text" name="married_3" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> %<br>
+</p>
+<br>
+      <b>Envision yourself also being married at this time.</b>
+<p>
+    How much do you expect your spouse to earn per year?&nbsp;<br>
+                {{ formfield_errors 'spouse_salary_3' }}<input type="text" name="spouse_salary_3" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> USD/year <br>
+    <br>
+
+    How many hours a week do you expect your spouse to work?&nbsp;<br>
+        {{ formfield_errors 'spouse_hour_3' }}<input type="text" name="spouse_hour_3" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> hours/week <br>
+
+        <br> What do you believe is the percentage chance of the following at this time?
+        Your answers should sum to 100.
+            {{ formfield_errors 'nochild_3' }}
+            {{ formfield_errors 'onechild_3' }}
+            {{ formfield_errors 'twochild_3' }}
+    <div  style="line-height: 10px">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You having no children: <input type="text" name="nochild_3" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> %<br>
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You having one child: <input type="text" name="onechild_3" style="vertical-align: middle; max-width: 100px; padding: .35rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> %<br>
+    <br>You having two or more children: <input type="text" name="twochild_3" style="vertical-align: middle; max-width: 100px; padding: .35rem ; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out"> %<br>
+   </div>
+
+        <div id="sumDiv3">
+            Sum:
+        </div>
+</p>
+</div>
+    </div>
+
+<div class="card-body">
+          <button  class="button btn btn-success">
+      Submit</button>
+ </div>
+{% endblock %}
+
+
+{% block script%}
+<script>
+    // Retrieve the input elements
+const noChildInput1 = document.querySelector('input[name="nochild_1"]');
+const oneChildInput1 = document.querySelector('input[name="onechild_1"]');
+const twoChildInput1 = document.querySelector('input[name="twochild_1"]');
+
+// Retrieve the div element to display the sum
+const sumDiv1 = document.getElementById('sumDiv1');
+
+// Add event listeners to the input elements
+noChildInput1.addEventListener('input', updateSum1);
+oneChildInput1.addEventListener('input', updateSum1);
+twoChildInput1.addEventListener('input', updateSum1);
+
+// Function to update the sum when any of the input values change
+function updateSum1() {
+  // Get the values from the input elements
+  const noChildValue = parseFloat(noChildInput1.value) || 0;
+  const oneChildValue = parseFloat(oneChildInput1.value) || 0;
+  const twoChildValue = parseFloat(twoChildInput1.value) || 0;
+
+  // Calculate the sum of the three inputs
+  const sum1 = noChildValue + oneChildValue + twoChildValue;
+
+  // Display the sum in the sumDiv
+  sumDiv1.textContent = 'Sum: ' + sum1;
+}
+
+</script>
+
+<script>
+    // Retrieve the input elements
+const noChildInput2 = document.querySelector('input[name="nochild_2"]');
+const oneChildInput2 = document.querySelector('input[name="onechild_2"]');
+const twoChildInput2 = document.querySelector('input[name="twochild_2"]');
+
+// Retrieve the div element to display the sum
+const sumDiv2 = document.getElementById('sumDiv2');
+
+// Add event listeners to the input elements
+noChildInput2.addEventListener('input', updateSum2);
+oneChildInput2.addEventListener('input', updateSum2);
+twoChildInput2.addEventListener('input', updateSum2);
+
+// Function to update the sum when any of the input values change
+function updateSum2() {
+  // Get the values from the input elements
+  const noChildValue = parseFloat(noChildInput2.value) || 0;
+  const oneChildValue = parseFloat(oneChildInput2.value) || 0;
+  const twoChildValue = parseFloat(twoChildInput2.value) || 0;
+
+  // Calculate the sum of the three inputs
+  const sum2 = noChildValue + oneChildValue + twoChildValue;
+
+  // Display the sum in the sumDiv
+  sumDiv2.textContent = 'Sum: ' + sum2;
+}
+
+</script>
+
+<script>
+    // Retrieve the input elements
+const noChildInput3 = document.querySelector('input[name="nochild_3"]');
+const oneChildInput3 = document.querySelector('input[name="onechild_3"]');
+const twoChildInput3 = document.querySelector('input[name="twochild_3"]');
+
+// Retrieve the div element to display the sum
+const sumDiv3 = document.getElementById('sumDiv3');
+
+// Add event listeners to the input elements
+noChildInput3.addEventListener('input', updateSum3);
+oneChildInput3.addEventListener('input', updateSum3);
+twoChildInput3.addEventListener('input', updateSum3);
+
+// Function to update the sum when any of the input values change
+function updateSum3() {
+  // Get the values from the input elements
+  const noChildValue = parseFloat(noChildInput3.value) || 0;
+  const oneChildValue = parseFloat(oneChildInput3.value) || 0;
+  const twoChildValue = parseFloat(twoChildInput3.value) || 0;
+
+  // Calculate the sum of the three inputs
+  const sum3 = noChildValue + oneChildValue + twoChildValue;
+
+  // Display the sum in the sumDiv
+  sumDiv3.textContent = 'Sum: ' + sum3;
+}
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,170 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block style %}
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+
+{% endblock %}
+{% block content %}
+
+        <h1> Quiz on instructions </h1>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+            Please read the instructions carefully and answer the questions.
+            You must answer all 4 questions correctly in order to continue the experiment.
+</div>
+    </div>
+
+
+    <div class="card  m-3">
+          <h5 class="card-header">Instructions</h5>
+    <div class="card-body">
+        <p>
+        In this experiment, you will be randomly paired with an opponent.
+            Each of you is endowed with $20.00.
+            There will be an auction between the two of you.
+            The bidder who submits a higher bid will win and receive the prize of $10.00.
+            You can bid from $0.00 to $20.00 in increments of $0.01.
+            Regardless of whether you win or lose, you must pay your bid.
+        </p>
+        <p>
+            <b> In summary, </b><br>
+            o	If you WIN:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‣	Your earnings = $20.00 – your bid + $10.00<br>
+            o	If you LOSE: <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‣	Your earnings = $20.00 – your bid<br>
+            o	If you TIE, the winner will be selected at random: <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‣	50% chance that you WIN<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‣	50% change that you LOSE<br>
+        </p>
+</div>
+    </div>
+
+    <div class="card  m-3">
+          <h5 class="card-header">Questions</h5>
+    <div class="card-body">
+        <p> Please answer to the 100th cent. (i.e., $12.34)</p>
+        <p>
+        Q1. {{ q_set.0 }}
+        <input type='number' step="0.01"  id='answer_4_0' class='form-control' style='width:100px'>
+        </p>
+                <p>
+        Q2. {{ q_set.1 }}
+        <input type='number' step="0.01"  id='answer_4_1' class='form-control' style='width:100px'>
+        </p>
+                <p>
+        Q3. {{ q_set.2 }}
+        <input type='number' step="0.01"  id='answer_4_2' class='form-control' style='width:100px'>
+
+        </p>
+           <p>
+        Q4. {{ q_set.3 }}
+        <input type='number' step="0.01"  id='answer_4_3' class='form-control' style='width:100px'>
+        </p>
+    </div>
+    </div>
+
+
+    <div id="correct_div"  class="card bg-light m-3 hidden">
+        <div class="card-body">
+            Great! You answered all questions correctly. Please click Next to continue. <br>
+
+        </div>
+    </div>
+    <div id="incorrect_div"  class="card bg-light m-3 hidden">
+        <div class="card-body">
+            Not quite! The correct answers were: {{ a_set.0 }}, {{ a_set.1 }}, {{ a_set.2 }}, and {{ a_set.3 }}.
+            Please raise your hand, and the experimenter will approach you and help you answer the questions.
+        </div>
+    </div>
+
+
+<div class="card-body">
+          <button id="check" class="button btn btn-success ">
+      Check answers </button>&nbsp;
+                          <button id="start" class="button btn btn-success hidden">
+      Next </button>&nbsp;
+
+ </div>
+
+
+
+        <input type="hidden" name="answer_4" id="answer_4" />
+        <input type="hidden" name="pass_4" id="pass_4" />
+        <input type="hidden" name="pass_key" id="pass_key" />
+
+{% endblock %}
+
+{% block script %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqwidgets/12.0.2/jqwidgets/styles/jqx.base.min.css">
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/jqwidgets/12.0.2/jqwidgets/jqx-all.js"></script>
+    <script>
+
+        var real_answers = {{  a_set }}
+
+    $("#check").click(function(event) {
+         event.preventDefault();
+
+         var answer_4 = $("#answer_4")
+         var answers = []
+         for (var i = 0; i < 4; i++) {
+             answers.push(parseFloat($("#answer_4_" + i).val()).toFixed(2))
+             $("#answer_4_" + i).prop("disabled", true);
+         }
+         answer_4.val(JSON.stringify(answers))
+         console.log(answer_4.val())
+         console.log(real_answers)
+
+
+        var pass_4 = $("#pass_4");
+        var correctDiv = $("#correct_div");
+        var incorrectDiv = $("#incorrect_div");
+        var start = $("#start");
+        var tryagain = $("#tryagain");
+        var check = $("#check");
+        var pass_key = $("#pass_key");
+
+        if (answer_4.val() !== JSON.stringify(real_answers)) {
+          pass_4.val("No");
+          incorrectDiv.show();
+          correctDiv.hide();
+          start.hide();
+          tryagain.show()
+          console.log("incorrect*");
+          check.prop("disabled", true);
+          pass_key.val("No")
+
+        } else if (answer_4.val() === JSON.stringify(real_answers)) {
+          pass_4.val("Yes");
+          incorrectDiv.hide();
+          correctDiv.show();
+          tryagain.hide();
+          start.show()
+          console.log("correct*");
+          check.prop("disabled", true);
+          pass_key.val("Yes")
+        }
+
+     })
+
+
+
+     $("#start").click(function(event) {
+          })
+
+    document.addEventListener('keydown', function(event) {
+      if (event.shiftKey && event.key === 'T') {
+        event.preventDefault(); // Prevent the default behavior of the key combination
+    document.forms[0].submit(); // Submit the first form on the page (you can adjust the index if needed)
+      }
+    });
+
+     </script>
+
+{% endblock %}

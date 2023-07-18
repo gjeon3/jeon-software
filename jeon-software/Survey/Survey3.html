@@ -1,0 +1,99 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block style %}
+    <style>
+    .long
+    {
+        line-height:27px;
+        vertical-align: middle;
+    }
+
+.state-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+    </style>
+{% endblock %}
+{% block content %}
+<h1>Page 2</h1>
+<div class="card bg-light m-3">
+    <div class="card-body">
+        This page consists of four questions about competing. <br>
+</div>
+    </div>
+    <div class="card bg-light m-3">
+    <div class="card-body long">
+{{ formfield_errors 'bno_1' }}
+    <b>How competitive do you consider yourself to be? </b>
+    You can express this using the scale below, which runs from 0 – meaning, "not at all competitive" – to 10, which means "extremely competitive".<br>
+    <input class="form-check-input" type="radio" name="bno_1" value="1">&nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_1" value="1">&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_1" value="2">&nbsp;&nbsp;2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_1" value="3">&nbsp;&nbsp;3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_1" value="4">&nbsp;&nbsp;4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_1" value="5">&nbsp;&nbsp;5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_1" value="6">&nbsp;&nbsp;6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_1" value="7">&nbsp;&nbsp;7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_1" value="8">&nbsp;&nbsp;8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_1" value="9">&nbsp;&nbsp;9 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_1" value="10">&nbsp;&nbsp;10
+
+    </div></div>
+
+            <div class="card bg-light m-3">
+    <div class="card-body long">
+<p>
+    <b>Picture the following situation. </b>
+        You are taking part in an experiment in which you are paid according to your performance on the following task.
+        The task consists of adding up five numbers without using a calculator (for example: 43+82+11+94+68=?).
+        You are given five minutes to make as many of such sums as you can.
+    You are also given the choice of two options regarding the payout.</p>
+<p><b>Option 1</b>: Piecework pay: you receive $1 for each correct answer.<br>
+    <b>Option 2</b>: Competition: you compete with three other people.
+    If you get more answers right than the others, you will receive $4 for each correct answer.
+    Otherwise, you will not receive anything.
+    The other three people are chosen at random from other participants in this experiment.</p>
+<p><b>Which option would you choose? </b><br>
+    {{ formfield_errors 'bno_2' }}
+    <input class="form-check-input" type="radio" name="bno_2" value="0">&nbsp;&nbsp;Option 1: Piecework pay<br>
+    <input class="form-check-input" type="radio" name="bno_2" value="1">&nbsp;&nbsp;Option 2: Competition<br>
+    </p>
+        <p>
+    How well do you think you would perform at the task described above (adding up five two-digit numbers)
+    compared to 3 other participants in this experiment, chosen at random? <br>
+    <b>
+    How do you think you would rank in this group? </b>(1 stands for "the best of the group of 4” and 4 stands for “the worst of the group of 4"). <br>
+        {{ formfield_errors 'bno_3' }}</p>
+    <input class="form-check-input" type="radio" name="bno_3" value="1">&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_3" value="2">&nbsp;&nbsp;2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_3" value="3">&nbsp;&nbsp;3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_3" value="4">&nbsp;&nbsp;4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </div></div>
+   <div class="card bg-light m-3">
+    <div class="card-body long">
+{{ formfield_errors 'bno_4' }}
+    <b>How do you see yourself? Are you generally someone who is willing to take risks, or do you try to avoid risks?</b>
+    You can express this using the scale below, which runs from 0 – meaning, "not at all willing to take risks" – to 10, which means "very willing to take risks".<br>
+    <input class="form-check-input" type="radio" name="bno_4" value="1">&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_4" value="2">&nbsp;&nbsp;2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_4" value="3">&nbsp;&nbsp;3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_4" value="4">&nbsp;&nbsp;4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_4" value="5">&nbsp;&nbsp;5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_4" value="6">&nbsp;&nbsp;6 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_4" value="7">&nbsp;&nbsp;7 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_4" value="8">&nbsp;&nbsp;8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_4" value="9">&nbsp;&nbsp;9 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="bno_4" value="10">&nbsp;&nbsp;10
+
+    </div></div>
+
+
+<div class="card-body">
+          <button  class="button btn btn-success">
+      Submit </button>
+ </div>
+{% endblock %}

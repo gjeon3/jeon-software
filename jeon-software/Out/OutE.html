@@ -1,0 +1,40 @@
+{{ block title }}
+{{ endblock }}
+{{ block content }}
+
+        <h1> Payment information   </h1>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        <p>
+        Your selected Task and Event. <br>
+        <b>Task</b>: {{ task_selected }} <br>
+        <b>Event</b>: {{ event_selected }}
+        </p>
+        <p>
+        Your payment information. <br>
+        <b>{{ method1 }}</b>:   {{ method1_address }}<br>
+        <b>{{ method2 }}</b>: {{ method2_address }} <br>
+        </p>
+
+        <p>
+            The experiment ends at 5pm, after which participants will be randomly paired with opponents.
+            Task results are calculated by comparing your inputs with opponents' inputs, and
+            earnings from your selected task will determine your payment.
+            This payment will be verified by authorized research staff and sent to you within 24 hours.
+            You'll receive an email receipt and a detailed report of your experiment outcomes and results along with the payment.
+        </p>
+        <p>
+            Thank you for your valuable participation in this study!
+        </p>
+        <p>
+            If you have any questions, or need assistance of any kind,
+            please contact the experimenter. <br>
+            Ga Hye Jeon at 470-955-8615 or gjeon3@gsu.edu.
+        </p>
+</div>
+    </div>
+<div class="card-body">
+          <button  class="button btn btn-success">
+      Finish</button>
+ </div>
+{{ endblock }}

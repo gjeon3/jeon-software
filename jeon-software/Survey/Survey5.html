@@ -1,0 +1,109 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block style %}
+    <style>
+    .long
+    {
+        line-height:27px;
+        vertical-align: middle;
+    }
+
+
+    </style>
+{% endblock %}
+{% block content %}
+<h1>Page 5</h1>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        Please read the following statements and indicate whether you
+        strongly agree, agree, neither agree nor disagree, disagree, or strongly disagree with each statement.
+</div>
+    </div>
+
+    <div class="card bg-light m-3">
+    <div class="card-body long">
+
+<p>{{ formfield_errors 'gi_1' }}
+    <b>It is much better for everyone involved if the man is the achiever
+        outside the home and the woman takes care of the home and family</b>
+    <br>
+    <input class="form-check-input" type="radio" name="gi_1" value="1">&nbsp;&nbsp;Strongly agree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_1" value="2">&nbsp;&nbsp;Agree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_1" value="3">&nbsp;&nbsp;Neither agree nor disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_1" value="4">&nbsp;&nbsp;Disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_1" value="5">&nbsp;&nbsp;Strongly disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br><br>
+</p>
+
+<p>{{ formfield_errors 'gi_2' }}
+    <b>A working mother can establish just as warm and secure a relationship with her children
+        as a mother who does not work</b>
+    <br>
+    <input class="form-check-input" type="radio" name="gi_2" value="1">&nbsp;&nbsp;Strongly agree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_2" value="2">&nbsp;&nbsp;Agree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_2" value="3">&nbsp;&nbsp;Neither agree nor disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_2" value="4">&nbsp;&nbsp;Disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_2" value="5">&nbsp;&nbsp;Strongly disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    <br><br>
+</p>
+<p>{{ formfield_errors 'gi_3' }}
+    <b>A pre-school child is likely to suffer if his or her mother works</b>
+    <br>
+    <input class="form-check-input" type="radio" name="gi_3" value="1">&nbsp;&nbsp;Strongly agree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_3" value="2">&nbsp;&nbsp;Agree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_3" value="3">&nbsp;&nbsp;Neither agree nor disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_3" value="4">&nbsp;&nbsp;Disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_3" value="5">&nbsp;&nbsp;Strongly disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+</p>
+
+    </div></div>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+            Based on your estimation of how other participants in this experiment would respond,
+            please choose the option that you believe would be most commonly selected.
+</div>
+    </div>
+            <div class="card bg-light m-3">
+    <div class="card-body long">
+
+<p>{{ formfield_errors 'gi_4' }}
+    <b>It is much better for everyone involved if the man is the achiever
+        outside the home and the woman takes care of the home and family</b>
+    <br>
+    <input class="form-check-input" type="radio" name="gi_4" value="1">&nbsp;&nbsp;Strongly agree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_4" value="2">&nbsp;&nbsp;Agree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_4" value="3">&nbsp;&nbsp;Neither agree nor disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_4" value="4">&nbsp;&nbsp;Disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_4" value="5">&nbsp;&nbsp;Strongly disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <br>    <br>
+</p>
+
+<p>{{ formfield_errors 'gi_5' }}
+    <b>A working mother can establish just as warm and secure a relationship with her children
+        as a mother who does not work</b>
+    <br>
+    <input class="form-check-input" type="radio" name="gi_5" value="1">&nbsp;&nbsp;Strongly agree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_5" value="2">&nbsp;&nbsp;Agree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_5" value="3">&nbsp;&nbsp;Neither agree nor disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_5" value="4">&nbsp;&nbsp;Disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_5" value="5">&nbsp;&nbsp;Strongly disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br>    <br>
+</p>
+<p>{{ formfield_errors 'gi_6' }}
+    <b>A pre-school child is likely to suffer if his or her mother works</b>
+    <br>
+    <input class="form-check-input" type="radio" name="gi_6" value="1">&nbsp;&nbsp;Strongly agree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_6" value="2">&nbsp;&nbsp;Agree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_6" value="3">&nbsp;&nbsp;Neither agree nor disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_6" value="4">&nbsp;&nbsp;Disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input class="form-check-input" type="radio" name="gi_6" value="5">&nbsp;&nbsp;Strongly disagree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <br>
+</p>
+
+    </div></div>
+
+<div class="card-body">
+          <button  class="button btn btn-success">
+      Submit</button>
+ </div>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+
+{% block style %}
+    <style>
+      .form-control {
+        width: 100px;
+      }
+                  .otree-form-errors{
+          display: none;
+      }
+    </style>
+
+{% endblock %}
+{% block content %}
+
+
+        <h1> Part 2 Task 3  </h1>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        Welcome to Task 3. Please read the instructions carefully and complete the task.
+    </div>
+    </div>
+   <div class="card  m-3">
+          <h5 class="card-header">Instructions</h5>
+    <div class="card-body">
+        <p>In this task, you are paired with a <b>computer opponent </b>
+            who makes a random bid between $0.00 and $10.00 in increments of $0.01.
+</p>
+        <p>
+            You are endowed with $20.00.
+            There will be an auction between the two of you.
+            The bidder who submits a higher bid will win and receive the prize of $10.00.
+            You can bid from $0.00 to $20.00 in increments of $0.01.
+            Regardless of whether you win or lose, you must pay your bid.
+        </p>
+        <p>
+            <b> In summary, </b><br>
+            o	If you WIN:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‣	Your earnings = $20.00 – your bid + $10.00<br>
+            o	If you LOSE: <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‣	Your earnings = $20.00 – your bid<br>
+            o	If you TIE, the winner will be selected at random: <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‣	50% chance that you WIN<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‣	50% change that you LOSE<br>
+        </p>
+</div>
+    </div>
+      <h2>Your bidding decision</h2>
+    <div class="card bg-light m-3">
+    <div class="card-body">
+        Please now decide your bid. Please answer to the 100th cent. (i.e., $12.34) <br>
+        <input type="number" id="bid_3" name="bid_3" class="form-control" step="0.01" />
+         {{ formfield_errors 'bid_3' }}
+    </div>
+    </div>
+
+<div class="card-body">
+          <button  class="button btn btn-success">
+      Submit</button>
+ </div>
+{% endblock %}
+{% block script %}
+
+<script>
+
+</script>
+{% endblock %}
